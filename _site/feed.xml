@@ -1,4 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-20T04:13:29+01:00</updated><id>http://localhost:4000/</id><title type="html">crackchester.github.io</title><subtitle>Main website</subtitle><entry><title type="html">mary_morton</title><link href="http://localhost:4000/asis%20finals%202017/mary_morton.html" rel="alternate" type="text/html" title="mary_morton" /><published>2017-09-19T00:50:07+01:00</published><updated>2017-09-19T00:50:07+01:00</updated><id>http://localhost:4000/asis%20finals%202017/mary_morton</id><content type="html" xml:base="http://localhost:4000/asis%20finals%202017/mary_morton.html">&lt;p&gt;We determine that the downloaded file is a xz compressed tar archive by using the UNIX &lt;code class=&quot;highlighter-rouge&quot;&gt;file&lt;/code&gt; utility.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-20T04:33:03+01:00</updated><id>http://localhost:4000/</id><title type="html">crackchester.github.io</title><subtitle>Main website</subtitle><entry><title type="html">DigDug</title><link href="http://localhost:4000/asis%20finals%202017/DigDug.html" rel="alternate" type="text/html" title="DigDug" /><published>2017-09-20T04:15:07+01:00</published><updated>2017-09-20T04:15:07+01:00</updated><id>http://localhost:4000/asis%20finals%202017/DigDug</id><content type="html" xml:base="http://localhost:4000/asis%20finals%202017/DigDug.html">&lt;p&gt;We are given a link to a simple static website &lt;code class=&quot;highlighter-rouge&quot;&gt;digx.asisctf.com&lt;/code&gt;.
+The name and the description of the challenge all hint at the use of &lt;code class=&quot;highlighter-rouge&quot;&gt;dig -x&lt;/code&gt;, which performs a reverse lookup.
+So we obtain the IP of the server by using dig.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.11.1-P1 &amp;lt;&amp;lt;&amp;gt;&amp;gt; digx.asisctf.com
+;; global options: +cmd
+;; Got answer:
+;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 42490
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;digx.asisctf.com.              IN      A
+
+;; ANSWER SECTION:
+digx.asisctf.com.       300     IN      A       192.81.223.250
+
+;; Query time: 275 msec
+;; SERVER: 192.168.1.254#53(192.168.1.254)
+;; WHEN: Wed Sep 20 04:21:27 BST 2017
+;; MSG SIZE  rcvd: 61
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;We no perform a reverse lookup with &lt;code class=&quot;highlighter-rouge&quot;&gt;dig -x&lt;/code&gt; which reveals the domain &lt;code class=&quot;highlighter-rouge&quot;&gt;airplane.asisctf.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We attempt to access the domain via our browser, follow the instructions to enter offline mode and obtain the flag.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/asis-airplane.jpg&quot; alt=&quot;A screenshot of the website&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ASIS{&lt;em&gt;just_Go_Offline_When_you_want_to_be_creative&lt;/em&gt;!}&lt;/p&gt;</content><author><name>3553x</name></author><category term="ASIS Finals 2017" /><summary type="html">We are given a link to a simple static website digx.asisctf.com. The name and the description of the challenge all hint at the use of dig -x, which performs a reverse lookup. So we obtain the IP of the server by using dig.</summary></entry><entry><title type="html">mary_morton</title><link href="http://localhost:4000/asis%20finals%202017/mary_morton.html" rel="alternate" type="text/html" title="mary_morton" /><published>2017-09-19T00:50:07+01:00</published><updated>2017-09-19T00:50:07+01:00</updated><id>http://localhost:4000/asis%20finals%202017/mary_morton</id><content type="html" xml:base="http://localhost:4000/asis%20finals%202017/mary_morton.html">&lt;p&gt;We determine that the downloaded file is a xz compressed tar archive by using the UNIX &lt;code class=&quot;highlighter-rouge&quot;&gt;file&lt;/code&gt; utility.&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mary_morton_f3555213d54602a8e5a40fe0435adcf84e8eff71: XZ compressed data
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;

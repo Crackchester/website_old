@@ -24,7 +24,7 @@
                                                 <li ><a href="/index.html">About Us <span class="glyphicon glyphicon-book"></span></a></li> 
                                                 <li ><a href="/members.html">Members <span class="glyphicon glyphicon-user"></span></a></li> 
                                                 <li ><a href="/contact-us.html">Contact Us <span class="glyphicon glyphicon-envelope"></span></a></li> 
-                                                <li  class="active"><a href="/writeups.html">Writeups <span class="glyphicon glyphicon-align-left"></span></a></li> 
+                                                <li ><a href="/writeups.html">Writeups <span class="glyphicon glyphicon-align-left"></span></a></li> 
                                         </ul> 
                                         <ul class="nav navbar-nav navbar-right"> 
                                                 <li><a href="https://github.com/Crackchester/">GitHub <span class="glyphicon glyphicon-download-alt"></span></a></li> 
@@ -34,39 +34,55 @@
                         </div> 
                 </nav> 
                 <div class="container"> 
-		  <h1 class="page-heading">Writeups</h1>
-  
-  
+		<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-    
-  <ul class="post-list">
-      <h2> ASIS Finals 2017 </h2>
-      <ul>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">DigDug</h1>
+    <p class="post-meta">
+      <time datetime="2017-09-20T04:15:07+01:00" itemprop="datePublished">
+      </time>
       
-      	
-	
-      
-    
-      	
-	
-	<li>
-        <h3>
-          <a class="post-link" href="/asis%20finals%202017/DigDug.html">DigDug</a>
-        </h3>
-      </li>
-      
-      
-	
-	<li>
-        <h3>
-          <a class="post-link" href="/asis%20finals%202017/mary_morton.html">mary_morton</a>
-        </h3>
-      </li>
-      
-      
-    
-  </ul>
-    
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">3553x</span></span>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>We are given a link to a simple static website <code class="highlighter-rouge">digx.asisctf.com</code>.
+The name and the description of the challenge all hint at the use of <code class="highlighter-rouge">dig -x</code>, which performs a reverse lookup.
+So we obtain the IP of the server by using dig.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>; &lt;&lt;&gt;&gt; DiG 9.11.1-P1 &lt;&lt;&gt;&gt; digx.asisctf.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 42490
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;digx.asisctf.com.              IN      A
+
+;; ANSWER SECTION:
+digx.asisctf.com.       300     IN      A       192.81.223.250
+
+;; Query time: 275 msec
+;; SERVER: 192.168.1.254#53(192.168.1.254)
+;; WHEN: Wed Sep 20 04:21:27 BST 2017
+;; MSG SIZE  rcvd: 61
+</code></pre>
+</div>
+<p>We no perform a reverse lookup with <code class="highlighter-rouge">dig -x</code> which reveals the domain <code class="highlighter-rouge">airplane.asisctf.com</code></p>
+
+<p>We attempt to access the domain via our browser, follow the instructions to enter offline mode and obtain the flag.</p>
+
+<p><img src="/assets/asis-airplane.jpg" alt="A screenshot of the website" /></p>
+
+<p>ASIS{<em>just_Go_Offline_When_you_want_to_be_creative</em>!}</p>
+
+
+  </div>
+
+</article>
 
                 </div> 
  
