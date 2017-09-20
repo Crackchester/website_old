@@ -5,13 +5,20 @@ layout: default
   
   {{ content }}
 
+    {% for category in site.categories %}
   <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-
-        <h2>
+      <h2> {{ category | first}} </h2>
+      <ul>
+      {% for posts in category %}
+      	{% for post in posts %}
+	{% if post.url %}
+	<li>
+        <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-        </h2>
+        </h3>
       </li>
+      {% endif %}
+      {% endfor %}
     {% endfor %}
   </ul>
+    {% endfor %}
