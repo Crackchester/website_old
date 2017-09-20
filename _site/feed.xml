@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-20T05:00:16+01:00</updated><id>http://localhost:4000/</id><title type="html">crackchester.github.io</title><subtitle>Main website</subtitle><entry><title type="html">DigDug</title><link href="http://localhost:4000/asis%20finals%202017/DigDug.html" rel="alternate" type="text/html" title="DigDug" /><published>2017-09-20T04:15:07+01:00</published><updated>2017-09-20T04:15:07+01:00</updated><id>http://localhost:4000/asis%20finals%202017/DigDug</id><content type="html" xml:base="http://localhost:4000/asis%20finals%202017/DigDug.html">&lt;p&gt;We are given a link to a simple static website &lt;code class=&quot;highlighter-rouge&quot;&gt;digx.asisctf.com&lt;/code&gt;.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-20T15:10:07+01:00</updated><id>http://localhost:4000/</id><title type="html">crackchester.github.io</title><subtitle>Main website</subtitle><entry><title type="html">DigDug</title><link href="http://localhost:4000/asis%20finals%202017/DigDug.html" rel="alternate" type="text/html" title="DigDug" /><published>2017-09-20T04:15:07+01:00</published><updated>2017-09-20T04:15:07+01:00</updated><id>http://localhost:4000/asis%20finals%202017/DigDug</id><content type="html" xml:base="http://localhost:4000/asis%20finals%202017/DigDug.html">&lt;p&gt;We are given a link to a simple static website &lt;code class=&quot;highlighter-rouge&quot;&gt;digx.asisctf.com&lt;/code&gt;.
 The name and the description of the challenge all hint at the use of &lt;code class=&quot;highlighter-rouge&quot;&gt;dig -x&lt;/code&gt;, which performs a reverse lookup.
 So we obtain the IP of the server by using dig.&lt;/p&gt;
 
@@ -22,7 +22,7 @@ digx.asisctf.com.       300     IN      A       192.81.223.250
 ;; MSG SIZE  rcvd: 61
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;We no perform a reverse lookup with &lt;code class=&quot;highlighter-rouge&quot;&gt;dig -x&lt;/code&gt; which reveals the domain &lt;code class=&quot;highlighter-rouge&quot;&gt;airplane.asisctf.com&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;We now perform a reverse lookup with &lt;code class=&quot;highlighter-rouge&quot;&gt;dig -x&lt;/code&gt; which reveals the domain &lt;code class=&quot;highlighter-rouge&quot;&gt;airplane.asisctf.com&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;We attempt to access the domain via our browser, follow the instructions to enter offline mode and obtain the flag.&lt;/p&gt;
 
