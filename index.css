@@ -1,0 +1,104 @@
+body {
+	background: #000000 url(/assets/images/background.jpg) fixed no-repeat;
+	background-position: top left;
+	background-size: cover-height;
+	background-attachment:fixed;
+}
+
+.fixed-pos {
+	position: fixed;
+}
+
+#nav-logo img {
+	width: auto;
+	height: 100%;
+	object-fit: contain;
+}
+
+#fullpage {
+	color: white;
+}
+
+.section-header {
+	text-decoration: underline;
+	font-family: Montserrat;
+}
+
+.section-text {
+	font-family: Montserrat;
+}
+
+@font-face {
+	font-family: Montserrat;
+	src: url(/assets/fonts/Montserrat/Montserrat-SemiBold.ttf);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	#nav-logo {
+		height: 35vw;
+	}
+
+	body {
+		background-position: top 25vh left -300px;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	#nav-logo {
+		height: 35vw;
+	}
+
+	body {
+		background-position: top 25vh left -250px;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	#nav-logo {
+		height: 30vw;
+	}
+
+	body {
+		background-position: top 25vh left -230px;
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	#nav-logo {
+		height: 25vw;
+	}
+
+	body {
+		background-position: top 25vh left;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	#nav-logo {
+		height: 15vw;
+	}
+
+	body {
+		background-position: top 25vh left 20vw;
+	}
+
+	#fullpage {
+		margin-left: 5vw;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 2000px and up) */
+@media only screen and (min-width: 2000px) {
+	body {
+		background-position: top 25vh left 35vw;
+	}
+
+	#fullpage {
+		margin-left: 25vw;
+	}
+}

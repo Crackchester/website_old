@@ -8,24 +8,28 @@
     <script src="vendors/jquery.easings.min.js"></script>
     <script type="text/javascript" src="vendors/scrolloverflow.min.js"></script>
     <script type="text/javascript" src="jquery.fullPage.js"></script>
-    <link rel="shortcut icon" href="crackchester_logo.png" />
+    <link rel="shortcut icon" href="/assets/images/crackchester_logo.jpg" />
     <meta charset="utf-8" />
     <title>Crackchester</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript">
-    $(document).ready(function() {
-    $('#fullpage').fullpage();
-    });
+      $(document).ready(function() {$('#fullpage').fullpage();});
     </script>
   </head>
   <body>
-    <div id="fullpage" class="container">
+    <nav class="navbar fixed-pos">
+      <div id="nav-logo">
+        <img src="/assets/images/crackchester_logo.jpg">
+      </div>
+    </nav>
+
+    <div id="fullpage" class="container pull-left">
       <div class="section">
-        <center><img src="crackchester_logo.png" height="20%" width="20%"></center>
         <div class="box">
-          <h1>What is Crackchester?</h1>
-          <p class="lead">
-            Crackchester is a society formed by current students of the University of Manchester. We are dedicated to <s>crack</s> cyber security and mostly take part in security competitions. We also aim to educate people on the technical aspects of cyber security by publishing writeups and holding workshops.
+          <h1>We are Crackchester</h1>
+          <h2 class="section-header">A society dedicated to Cyber Security.</h2>
+          <p class="lead section-text">
+            Crackchester, formed by current students at the University of Manchester aims to educate people on CyberSec via holding workshops, competitions, publishing writeups and other extracurricular activities related to cyber-security.
           </p>
         </div>
       </div>
@@ -48,6 +52,7 @@
           If you would like to learn more about security by taking part in these competitions or getting involved in security related projects then you are more than welcome to join us.
         </p>
       </div>
+    </div>
       <div class="section">
         <div class="box">
           <h1>How can I join?</h1>
