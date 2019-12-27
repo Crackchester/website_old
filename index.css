@@ -1,12 +1,21 @@
 body {
-	background: #000000 url(/assets/images/background.jpg) fixed no-repeat;
+	background: #000000 url(./assets/images/background.jpg) fixed no-repeat;
 	background-position: top left;
 	background-size: cover-height;
 	background-attachment:fixed;
 }
 
+
+blockquote {
+	font-size: 14px;
+}
+
 .screen-width {
 	width: 100vw;
+}
+
+.no-top-margin {
+	margin-top: 0px;
 }
 
 .fixed-pos {
@@ -38,7 +47,7 @@ body {
 
 @font-face {
 	font-family: Montserrat;
-	src: url(/assets/fonts/Montserrat/Montserrat-SemiBold.ttf);
+	src: url(./assets/fonts/Montserrat/Montserrat-SemiBold.ttf);
 }
 
 /* Extra small devices (phones, 600px and down) */
