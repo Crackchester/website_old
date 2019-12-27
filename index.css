@@ -5,11 +5,19 @@ body {
 	background-attachment:fixed;
 }
 
+.screen-width {
+	width: 100vw;
+}
+
 .fixed-pos {
 	position: fixed;
 }
 
-#nav-logo img {
+.nav-img {
+	display: inline-block;
+}
+
+.nav-img img {
 	width: auto;
 	height: 100%;
 	object-fit: contain;
@@ -35,7 +43,7 @@ body {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-	#nav-logo {
+	.nav-img {
 		height: 35vw;
 	}
 
@@ -46,7 +54,7 @@ body {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-	#nav-logo {
+	.nav-img {
 		height: 35vw;
 	}
 
@@ -57,7 +65,7 @@ body {
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-	#nav-logo {
+	.nav-img {
 		height: 30vw;
 	}
 
@@ -68,7 +76,7 @@ body {
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-	#nav-logo {
+	.nav-img {
 		height: 25vw;
 	}
 
@@ -79,7 +87,7 @@ body {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-	#nav-logo {
+	.nav-img {
 		height: 15vw;
 	}
 
